@@ -7,7 +7,7 @@ Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GL
 Summary(pl):	OpenGL - modu³ Perla przedstawiaj±cy dane korzystaj±c z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
 Version:	0.5
-Release:	4
+Release:	5
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
