@@ -19,7 +19,7 @@ Patch2:		%{name}-constants.patch
 Patch3:		%{name}-link.patch
 BuildRequires:	OpenGL-devel
 BuildRequires:	glut-devel
-BuildRequires:	perl-devel >= 5.6
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
