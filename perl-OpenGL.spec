@@ -3,7 +3,7 @@ Summary:	OpenGL perl module
 Summary(pl):	Modu³ perla OpenGL
 Name:		perl-OpenGL
 Version:	0.5
-Release:	3
+Release:	4
 License:	distributable
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
