@@ -7,6 +7,7 @@ Release:	4
 License:	distributable
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
+# Source0-md5:	b120cb9ee4cdb4011aed2829be0110c7
 Patch0:		%{name}-INC.patch
 Patch1:		%{name}-noGLU1.2.patch
 Patch2:		%{name}-constants.patch
