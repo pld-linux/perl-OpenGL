@@ -1,0 +1,87 @@
+diff -durN OpenGL-0.5.orig/gl_const.h OpenGL-0.5/gl_const.h
+--- OpenGL-0.5.orig/gl_const.h	Mon Jan 18 08:49:25 1999
++++ OpenGL-0.5/gl_const.h	Fri May 24 09:56:17 2002
+@@ -597,7 +597,6 @@
+ 	i(GL_INTENSITY8_EXT)
+ 	i(GL_INTENSITY12_EXT)
+ 	i(GL_INTENSITY16_EXT)
+-	i(GL_R3_G3_B2_EXT)
+ 	i(GL_RGB4_EXT)
+ 	i(GL_RGB5_EXT)
+ 	i(GL_RGB8_EXT)
+@@ -684,11 +683,6 @@
+ 	i(GL_EDGE_FLAG_ARRAY_POINTER_EXT)
+ #endif
+ 
+-/* 31 */
+-#ifdef GL_EXT_misc_attribute
+-	i(GL_MISC_BIT_EXT)
+-#endif
+-
+ /* 37 & 2 */
+ #if defined(GL_EXT_blend_minmax) || defined(GL_EXT_blend_color)
+ 	i(GL_CONSTANT_COLOR_EXT)
+@@ -709,12 +703,6 @@
+ 	i(GL_ABGR_EXT)
+ #endif
+ 
+-/* 79 */
+-#ifdef GL_EXT_clip_volume_hint
+-	i(GL_VOLUME_CLIPPING_HINT_EXT)
+-#endif
+-
+-
+ #if defined(GL_EXT_texture_priority)
+ 	i(GL_TEXTURE_PRIORITY_EXT)
+ 	i(GL_TEXTURE_RESIDENT_EXT)
+@@ -788,7 +776,6 @@
+ 	i(GL_ALL_ATTRIB_BITS)
+ 	i(GL_CLIENT_PIXEL_STORE_BIT)
+ 	i(GL_CLIENT_VERTEX_ARRAY_BIT)
+-	i(GL_CLIENT_ALL_ATTRIB_BITS)
+     }
+     else
+ #endif
+diff -durN OpenGL-0.5.orig/gl_util.c OpenGL-0.5/gl_util.c
+--- OpenGL-0.5.orig/gl_util.c	Thu Jan 28 20:57:58 1999
++++ OpenGL-0.5/gl_util.c	Fri May 24 09:56:59 2002
+@@ -342,13 +342,6 @@
+ 	}
+ #endif
+ 
+-/* 79 */
+-#ifdef GL_EXT_clip_volume_hint
+-	switch (param) {
+-	case GL_VOLUME_CLIPPING_HINT_EXT:
+-		return 1;
+-	}
+-#endif
+ 
+ 	switch (param) {
+ 	case GL_ACCUM_ALPHA_BITS:
+@@ -700,14 +693,6 @@
+ #endif
+ 
+ 
+-/* 18 */
+-#ifdef GL_EXT_cmyka
+-		case GL_CMYK:
+-			n = 4; break;
+-		case GL_CMYKA:
+-			n = 5; break;
+-#endif
+-
+ #ifdef GL_EXT_agbr
+ 		case GL_AGBR:
+ 			n = 4; break;
+diff -durN OpenGL-0.5.orig/glu_const.h OpenGL-0.5/glu_const.h
+--- OpenGL-0.5.orig/glu_const.h	Mon Jan 18 08:49:53 1999
++++ OpenGL-0.5/glu_const.h	Fri May 24 09:56:17 2002
+@@ -79,7 +79,6 @@
+ 	i(GLU_INVALID_ENUM)
+ 	i(GLU_INVALID_VALUE)
+ 	i(GLU_OUT_OF_MEMORY)
+-	i(GLU_INCOMPATIBLE_GL_VERSION)
+ 
+ #ifdef GLU_VESION_1_1
+ 	i(GLU_VERSION)
