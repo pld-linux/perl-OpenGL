@@ -6,7 +6,7 @@ Version:	0.5
 Release:	3
 License:	distributable
 Group:		Development/Languages/Perl
-Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
 Patch0:		%{name}-INC.patch
 Patch1:		%{name}-noGLU1.2.patch
 Patch2:		%{name}-constants.patch
