@@ -23,6 +23,12 @@ it works out to), and GLUT should be completely supported up to API
 version 3. A small portion of GLX and X11 is supported, as an
 alternative to GLUT.
 
+%description -l pl
+Ten modu³ daje dostêp do wiêkszo¶ci API OpenGL 1.0, 1.1 i 1.2.
+Udostêpnia te¿ czê¶æ GLU (w bli¿ej nieokre¶lonej wersji) oraz
+powinien udostêpniaæ pe³ne API GLUT do wersji 3. Jako alternatywa
+dla GLUT jest dostêpna tak¿e niewielka czê¶æ API GLX i X11.
+
 %prep
 %setup -q -n OpenGL-%{version}
 %patch0 -p1
