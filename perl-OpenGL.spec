@@ -3,7 +3,7 @@ Summary:	OpenGL perl module
 Summary(pl):	Modu³ perla OpenGL
 Name:		perl-OpenGL
 Version:	0.5
-Release:	1
+Release:	2
 License:	distributable
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
@@ -13,6 +13,7 @@ Patch2:		%{name}-constants.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6
 BuildRequires:	OpenGL-devel
+BuildRequires:	XFree86-XIE-devel
 BuildRequires:	glut-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
