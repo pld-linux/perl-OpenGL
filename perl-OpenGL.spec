@@ -38,7 +38,7 @@ dla GLUT jest dostêpna tak¿e niewielka czê¶æ API GLX i X11.
 %patch3 -p1
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make}
 
 %install
