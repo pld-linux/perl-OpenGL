@@ -1,10 +1,11 @@
 %include	/usr/lib/rpm/macros.perl
-Summary:	OpenGL perl module
-Summary(pl):	Modu³ perla OpenGL
+Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GLX
+Summary(pl):	OpenGL - modu³ Perla przedstawiaj±cy dane korzystaj±c z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
 Version:	0.5
 Release:	4
-License:	distributable
+# same as perl
+License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
 # Source0-md5:	b120cb9ee4cdb4011aed2829be0110c7
