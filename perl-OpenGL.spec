@@ -40,7 +40,7 @@ dla GLUT jest dostêpna tak¿e niewielka czê¶æ API GLX i X11.
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make}
 
 %install
