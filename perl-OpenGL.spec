@@ -3,7 +3,7 @@ Summary:	OpenGL perl module
 Summary(pl):	Modu³ perla OpenGL
 Name:		perl-OpenGL
 Version:	0.5
-Release:	3
+Release:	4
 License:	distributable
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
@@ -14,7 +14,7 @@ Patch3:		%{name}-link.patch
 BuildRequires:	OpenGL-devel
 BuildRequires:	glut-devel
 BuildRequires:	perl-devel >= 5.6
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,7 +38,8 @@ dla GLUT jest dostêpna tak¿e niewielka czê¶æ API GLX i X11.
 %patch3 -p1
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make}
 
 %install
@@ -52,8 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README SUPPORTS TODO COPYRIGHT
-%{perl_sitearch}/OpenGL.pm
-%dir %{perl_sitearch}/auto/OpenGL
-%{perl_sitearch}/auto/OpenGL/autosplit.ix
-%{perl_sitearch}/auto/OpenGL/*.bs
-%attr(755,root,root) %{perl_sitearch}/auto/OpenGL/*.so
+%{perl_vendorarch}/OpenGL.pm
+%dir %{perl_vendorarch}/auto/OpenGL
+%{perl_vendorarch}/auto/OpenGL/autosplit.ix
+%{perl_vendorarch}/auto/OpenGL/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/OpenGL/*.so
