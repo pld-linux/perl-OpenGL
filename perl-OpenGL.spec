@@ -14,7 +14,7 @@ Patch3:		%{name}-link.patch
 BuildRequires:	OpenGL-devel
 BuildRequires:	glut-devel
 BuildRequires:	perl-devel >= 5.6
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
