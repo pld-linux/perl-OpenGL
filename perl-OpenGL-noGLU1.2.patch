@@ -1,0 +1,13 @@
+diff -durN OpenGL-0.5.orig/glu_util.h OpenGL-0.5/glu_util.h
+--- OpenGL-0.5.orig/glu_util.h	Tue Jan 19 05:31:16 1999
++++ OpenGL-0.5/glu_util.h	Fri May 24 09:45:08 2002
+@@ -1,4 +1,9 @@
+ #include <GL/glu.h>
++
++#ifdef GLU_VERSION_1_2
++#undef GLU_VERSION_1_2
++#endif
++
+ #ifndef GLU_VERSION_1_0
+ #define GLU_VERSION_1_0 1
+ #endif
