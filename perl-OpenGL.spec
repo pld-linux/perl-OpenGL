@@ -4,7 +4,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GLX
-Summary(pl.UTF-8):   OpenGL - moduł Perla przedstawiający dane korzystając z bibliotek OpenGL, GLU, GLUT i GLX
+Summary(pl.UTF-8):	OpenGL - moduł Perla przedstawiający dane korzystając z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
 Version:	0.5
 Release:	5.1
