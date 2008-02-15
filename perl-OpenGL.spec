@@ -7,7 +7,7 @@ Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GL
 Summary(pl.UTF-8):	OpenGL - moduł Perla przedstawiający dane korzystając z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
 Version:	0.5
-Release:	5.1
+Release:	5.2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -57,6 +57,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+mkdir -p $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,3 +71,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/OpenGL/autosplit.ix
 %{perl_vendorarch}/auto/OpenGL/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/OpenGL/*.so
+%dir %{_examplesdir}/%{name}-%{version}
+%{_examplesdir}/%{name}-%{version}/*
