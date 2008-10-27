@@ -1,13 +1,13 @@
 #
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_with	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GLX
 Summary(pl.UTF-8):	OpenGL - moduł Perla przedstawiający dane korzystając z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
 Version:	0.5
-Release:	5.2
+Release:	6
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
