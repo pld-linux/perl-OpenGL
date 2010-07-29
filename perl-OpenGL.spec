@@ -6,20 +6,17 @@
 Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GLX
 Summary(pl.UTF-8):	OpenGL - moduł Perla przedstawiający dane korzystając z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
-Version:	0.5
-Release:	8
+Version:	0.63
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
-# Source0-md5:	b120cb9ee4cdb4011aed2829be0110c7
-Patch0:		%{name}-INC.patch
-Patch1:		%{name}-noGLU1.2.patch
-Patch2:		%{name}-constants.patch
-Patch3:		%{name}-link.patch
-Patch4:		%{name}-if_it_breaks_comment_it_out.patch
+# Source0-md5:	8b18413af9a6184d01b2547781e0d027
+Patch0:		%{name}-build.patch
+URL:		http://search.cpan.org/dist/OpenGL/
 BuildRequires:	OpenGL-devel
-BuildRequires:	OpenGL-glut-devel
+BuildRequires:	freeglut-devel
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,14 +37,12 @@ dla GLUT jest dostępna także niewielka część API GLX i X11.
 %prep
 %setup -q -n OpenGL-%{version}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p0
 
 %build
 %{__perl} Makefile.PL \
+	interface=FREEGLUT \
 	INSTALLDIRS=vendor
+
 %{__make}
 
 %{?with_tests:%{__make} test}
@@ -67,6 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README SUPPORTS TODO COPYRIGHT
 %{perl_vendorarch}/OpenGL.pm
+%dir %{perl_vendorarch}/OpenGL
+%{perl_vendorarch}/OpenGL/Config.pm
 %dir %{perl_vendorarch}/auto/OpenGL
 %{perl_vendorarch}/auto/OpenGL/autosplit.ix
 %{perl_vendorarch}/auto/OpenGL/*.bs
