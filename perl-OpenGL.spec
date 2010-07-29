@@ -11,7 +11,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/C/CH/CHM/OpenGL-%{version}.tar.gz
 # Source0-md5:	8b18413af9a6184d01b2547781e0d027
 Patch0:		%{name}-build.patch
 URL:		http://search.cpan.org/dist/OpenGL/
