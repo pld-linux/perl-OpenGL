@@ -7,7 +7,7 @@ Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GL
 Summary(pl.UTF-8):	OpenGL - moduł Perla przedstawiający dane korzystając z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
 Version:	0.63
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -69,4 +69,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/OpenGL/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/OpenGL/*.so
 %dir %{_examplesdir}/%{name}-%{version}
+%{_mandir}/man3/*.3pm*
 %{_examplesdir}/%{name}-%{version}/*
