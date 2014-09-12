@@ -66,7 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/OpenGL/Config.pm
 %dir %{perl_vendorarch}/auto/OpenGL
 %{perl_vendorarch}/auto/OpenGL/autosplit.ix
-%{perl_vendorarch}/auto/OpenGL/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/OpenGL/*.so
 %dir %{_examplesdir}/%{name}-%{version}
 %{_mandir}/man3/*.3pm*
