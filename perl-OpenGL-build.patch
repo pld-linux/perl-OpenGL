@@ -1,9 +1,7 @@
-Don't check current display for extensions, build all.
-
-diff -up OpenGL-0.62/Makefile.PL.dist OpenGL-0.62/Makefile.PL
---- OpenGL-0.62/Makefile.PL.dist	2009-12-11 01:10:00.000000000 +0100
-+++ OpenGL-0.62/Makefile.PL	2010-01-07 13:00:26.000000000 +0100
-@@ -579,9 +579,9 @@ my $build_config =
+diff -urNp -x '*.orig' OpenGL-0.6704.org/Makefile.PL OpenGL-0.6704/Makefile.PL
+--- OpenGL-0.6704.org/Makefile.PL	2014-05-12 19:15:25.000000000 +0200
++++ OpenGL-0.6704/Makefile.PL	2021-05-07 23:27:31.143268173 +0200
+@@ -596,9 +596,9 @@ my $build_config =
    {
      FILES =>
        "Config.pm ".
@@ -16,15 +14,15 @@ diff -up OpenGL-0.62/Makefile.PL.dist OpenGL-0.62/Makefile.PL
    }
  };
  
-@@ -790,6 +790,7 @@ sub get_extensions
+@@ -814,6 +814,7 @@ sub get_extensions
      print "GLUT not found\n";
    }
  
 +=cut
    # Platform-specific makefiles for glversion
    my $make_ver;
-   if ($IS_MINGW)
-@@ -848,7 +849,9 @@ sub get_extensions
+   if ($IS_STRAWBERRY)
+@@ -876,7 +877,9 @@ sub get_extensions
       print "get_extensions: no extensions found in $glv_file\n" if $verbose;
       return '';
    }
@@ -35,7 +33,7 @@ diff -up OpenGL-0.62/Makefile.PL.dist OpenGL-0.62/Makefile.PL
  
    # Parse glext_procs.h file
    return '' if (!open(GLEXT,"glext_procs.h"));
-@@ -867,10 +870,12 @@ sub get_extensions
+@@ -895,10 +898,12 @@ sub get_extensions
  
    # Create gl_exclude.h
    die "Unable to write to $exc_file\n" if (!open(GLEXC,">$exc_file"));
