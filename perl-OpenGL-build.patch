@@ -1,7 +1,6 @@
-diff -urNp -x '*.orig' OpenGL-0.6704.org/Makefile.PL OpenGL-0.6704/Makefile.PL
---- OpenGL-0.6704.org/Makefile.PL	2014-05-12 19:15:25.000000000 +0200
-+++ OpenGL-0.6704/Makefile.PL	2021-05-07 23:27:31.143268173 +0200
-@@ -596,9 +596,9 @@ my $build_config =
+--- OpenGL-0.70/Makefile.PL.orig	2016-10-08 21:11:14.000000000 +0200
++++ OpenGL-0.70/Makefile.PL	2024-06-13 06:26:41.948354647 +0200
+@@ -601,9 +601,9 @@ my $build_config =
    {
      FILES =>
        "Config.pm ".
@@ -14,7 +13,7 @@ diff -urNp -x '*.orig' OpenGL-0.6704.org/Makefile.PL OpenGL-0.6704/Makefile.PL
    }
  };
  
-@@ -814,6 +814,7 @@ sub get_extensions
+@@ -824,6 +824,7 @@ sub get_extensions
      print "GLUT not found\n";
    }
  
@@ -22,18 +21,17 @@ diff -urNp -x '*.orig' OpenGL-0.6704.org/Makefile.PL OpenGL-0.6704/Makefile.PL
    # Platform-specific makefiles for glversion
    my $make_ver;
    if ($IS_STRAWBERRY)
-@@ -876,7 +877,9 @@ sub get_extensions
-      print "get_extensions: no extensions found in $glv_file\n" if $verbose;
-      return '';
-   }
--
+@@ -882,6 +883,9 @@ sub get_extensions
+   die "get_extensions: no extensions found in $glv_file\n" if !keys %$gldata;
+ 
+   print "This looks like OpenGL Version: $gldata->{VERSION}\n";
 +=cut
 +  use Config;
 +  my $gldata = { };
  
    # Parse glext_procs.h file
-   return '' if (!open(GLEXT,"glext_procs.h"));
-@@ -895,10 +898,12 @@ sub get_extensions
+   open GLEXT, "glext_procs.h" or die "get_extensions: could not open glext_procs.h: $!\n";
+@@ -900,10 +904,12 @@ sub get_extensions
  
    # Create gl_exclude.h
    die "Unable to write to $exc_file\n" if (!open(GLEXC,">$exc_file"));
@@ -45,4 +43,4 @@ diff -urNp -x '*.orig' OpenGL-0.6704.org/Makefile.PL OpenGL-0.6704/Makefile.PL
 +=cut
  
    # Fix GLUT flags based on results
-   if ($gldata->{GLUT} > 0)
+   if ($gldata->{FREEGLUT})
