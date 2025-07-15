@@ -36,7 +36,7 @@ dla GLUT jest dostępna także niewielka część API GLX i X11.
 
 %prep
 %setup -q -n OpenGL-0.70
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__perl} Makefile.PL \
