@@ -1,5 +1,41 @@
 --- OpenGL-0.7006/Makefile.PL.orig	2025-04-14 06:33:29.000000000 +0200
 +++ OpenGL-0.7006/Makefile.PL	2025-09-20 21:38:13.179157843 +0200
+@@ -78,34 +78,13 @@ our $NO_LGCC = grep /^NO_LGCC$/, @ARGV;
+ 
+ my $prepare_success = eval {
+ # Look for available libs
+-our @libdirs = map "-L$_", grep -d, qw(
+-  /usr/X11R6/lib
+-  /opt/X11/lib
+-  /usr/local/lib
+-  /usr/openwin/lib
+-  /opt/csw/lib
+-  /opt/local/lib
+-  /usr/local/freeglut/lib
+-  /usr/lib
+-  /usr/lib/xorg/modules
+-  /usr/X11R6/lib/modules
+-  /usr/lib/xorg/modules/extensions
+-  /usr/X11R6/lib/modules/extensions
+-);
++our @libdirs;
+ 
+ our @check_libs = qw
+ {
+   -lGL
+-  -lopengl
+-  -lMesaGL
+   -lGLU
+-  -lglu
+-  -lMesaGLU
+-  -lfreeglut
+-  -lglut3
+   -lglut
+-  -lGLUT
+-  -lMesaGLUT
+ };
+ 
+ our $found_libs = get_found_libs(\@libdirs,@check_libs);
 @@ -181,8 +181,7 @@ WriteMakefile(
        "lib/OpenGL/Config.pm ".
        "gl_exclude.h ".
@@ -43,3 +79,20 @@
    my $GL_VERSION = $gldata->{VERSION} =~ m|^(\d\.\d+)| ? $1 : undef;
    # Make an empty exclusion file if a Windows distribution build
    print $excl_fh "\n";
+@@ -618,7 +597,7 @@ sub generate_excl {
+ 
+ sub get_defines {
+   my ($found_libs, $interface_lib, $incs) = @_;
+-  my $defs = '-DHAVE_VER';
++  my $defs = '';
+   $defs .= " -DIS_STRAWBERRY" if $IS_STRAWBERRY;
+   print "resulting libs:\n" if $verbose;
+   foreach my $key (sort keys %$found_libs) {
+@@ -642,7 +642,6 @@ sub get_defines {
+     $out = cfile_text('GL/freeglut.h', $INCS);
+     $defs .= " -DHAVE_FREEGLUT -DHAVE_FREEGLUT_H"
+       if $out =~ m|glutMainLoopEvent|;
+-    $defs .= " -DGL_GLEXT_LEGACY";
+   }
+   $defs;
+ }
