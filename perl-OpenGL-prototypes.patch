@@ -1,0 +1,11 @@
+Unblock (used) prototypes from <GL/glext.h>
+--- OpenGL-0.7006/Makefile.PL.orig	2025-09-26 22:12:03.254141853 +0200
++++ OpenGL-0.7006/Makefile.PL	2025-09-27 08:56:28.623030160 +0200
+@@ -642,7 +642,6 @@ sub get_defines {
+     $out = cfile_text('GL/freeglut.h', $INCS);
+     $defs .= " -DHAVE_FREEGLUT -DHAVE_FREEGLUT_H"
+       if $out =~ m|glutMainLoopEvent|;
+-    $defs .= " -DGL_GLEXT_LEGACY";
+   }
+   $defs;
+ }

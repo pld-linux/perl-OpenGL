@@ -6,13 +6,14 @@ Summary:	OpenGL - Perl module to display 3D data using OpenGL, GLU, GLUT, and GL
 Summary(pl.UTF-8):	OpenGL - moduł Perla przedstawiający dane korzystając z bibliotek OpenGL, GLU, GLUT i GLX
 Name:		perl-OpenGL
 Version:	0.7006
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-module/OpenGL/OpenGL-%{version}.tar.gz
 # Source0-md5:	d5ace37b2e3355a1278080e90f3438d8
 Patch0:		%{name}-build.patch
+Patch1:		%{name}-prototypes.patch
 URL:		https://metacpan.org/dist/OpenGL
 BuildRequires:	OpenGL-devel
 BuildRequires:	freeglut-devel
@@ -41,6 +42,7 @@ dla GLUT jest dostępna także niewielka część API GLX i X11.
 %prep
 %setup -q -n OpenGL-%{version}
 %patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__perl} Makefile.PL \
